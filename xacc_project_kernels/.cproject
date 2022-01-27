@@ -35,7 +35,7 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.hwKernelCompiler.967653733" name="V++ Kernel Compiler" superClass="com.xilinx.ide.accel.tool.hwKernelCompiler">
                                 								
-                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.83170623" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
+                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.83170623" name="Include paths (-I)" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
                                     									
@@ -58,6 +58,8 @@
             </storageModule>
             			
             <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+            			
+            <storageModule moduleId="ilg.gnuarmeclipse.managedbuild.packs"/>
             		
         </cconfiguration>
         		
@@ -140,6 +142,16 @@
                             <builder buildPath="${workspace_loc:/xacc_project_kernels}/Hardware" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.kernel.1101330311" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Kernel Project Builder" superClass="com.xilinx.ide.accel.builder.kernel"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.hwKernelCompiler.1228479735" name="V++ Kernel Compiler" superClass="com.xilinx.ide.accel.tool.hwKernelCompiler">
+                                								
+                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.851125810" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L2/include/hw/vitis_fft/float"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/workspace/xacc_project_kernels/src"/>
+                                    								
+                                </option>
                                 								
                                 <inputType id="com.xilinx.accelerated.toolchain.hw_compiler.input.cl.743845899" name="OpenCL files" superClass="com.xilinx.accelerated.toolchain.hw_compiler.input.cl"/>
                                 							

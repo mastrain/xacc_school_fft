@@ -49,5 +49,16 @@
         </kernels>
       </binaryContainers>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
+      <binaryContainers name="binary_container_1">
+        <kernels name="fft1DKernel" projectName="xacc_project_kernels">
+          <computeUnits name="fft1DKernel_1" slr="">
+            <args name="p_inData" master="true" memory=""/>
+            <args name="p_outData" master="true" memory=""/>
+            <args name="n_frames"/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </lastBuildOptions>
   </configuration>
 </hwlink:HwLinkProject>

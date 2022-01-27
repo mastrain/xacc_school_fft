@@ -25,7 +25,7 @@
       </kernels>
     </configBuildOptions>
   </configuration>
-  <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwkernel.hw.2061034035" dirty="true">
+  <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwkernel.hw.2061034035">
     <configBuildOptions xsi:type="hwkernel:KernelOptions" target="hw">
       <kernels name="fft1DKernel" sourceFile="src/top_module.cpp">
         <args name="p_inData" master="true"/>
@@ -33,5 +33,12 @@
         <args name="n_frames"/>
       </kernels>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="hwkernel:KernelOptions" target="hw">
+      <kernels name="fft1DKernel" sourceFile="src/top_module.cpp">
+        <args name="p_inData" master="true"/>
+        <args name="p_outData" master="true"/>
+        <args name="n_frames"/>
+      </kernels>
+    </lastBuildOptions>
   </configuration>
 </hwkernel:HwKernelProject>
