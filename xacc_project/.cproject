@@ -43,6 +43,8 @@
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:XILINX_XRT}/include/"/>
                                     									
+                                    <listOptionValue builtIn="false" value="/home/centos/xacc_school_fft/xacc_project_kernels/src"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L2/include/hw/vitis_fft/float"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
@@ -55,7 +57,7 @@
                                     									
                                     <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/ext"/>
                                     									
-                                    <listOptionValue builtIn="false" value="/home/centos/workspace/xacc_project_kernels/src"/>
+                                    <listOptionValue builtIn="false" value="${PROJECT_LOC}/../xacc_project_kernels/src"/>
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:XILINX_VIVADO_HLS}/include/"/>
                                     								
@@ -192,6 +194,30 @@
                             <tool id="com.xilinx.ide.accel.tool.emconfigutil.622825721" name="emconfigutil" superClass="com.xilinx.ide.accel.tool.emconfigutil"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_compiler.hw.478457232" name="GCC Host Compiler (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_compiler.hw">
+                                								
+                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.866534195" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="${env_var:XILINX_XRT}/include/"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PROJECT_LOC}/../xacc_project_kernels/src&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/ext"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/utils/L1/include/xf_utils_sw"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/utils/ext/xcl2"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/ext/xcl2"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L2/include/hw/vitis_fft/float"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/xacc_school_fft/xacc_project_kernels/src"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="${env_var:XILINX_VIVADO_HLS}/include/"/>
+                                    								
+                                </option>
                                 								
                                 <inputType id="com.xilinx.ide.accel.managedbuild.input.cpp.1331371348" superClass="com.xilinx.ide.accel.managedbuild.input.cpp"/>
                                 								
