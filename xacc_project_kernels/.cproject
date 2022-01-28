@@ -95,6 +95,16 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.hwKernelCompiler.287591804" name="V++ Kernel Compiler" superClass="com.xilinx.ide.accel.tool.hwKernelCompiler">
                                 								
+                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.2031898256" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/workspace/xacc_project_kernels/src"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L2/include/hw/vitis_fft/float"/>
+                                    								
+                                </option>
+                                								
                                 <inputType id="com.xilinx.accelerated.toolchain.hw_compiler.input.cl.1781899161" name="OpenCL files" superClass="com.xilinx.accelerated.toolchain.hw_compiler.input.cl"/>
                                 							
                             </tool>
@@ -143,7 +153,7 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.hwKernelCompiler.1228479735" name="V++ Kernel Compiler" superClass="com.xilinx.ide.accel.tool.hwKernelCompiler">
                                 								
-                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.851125810" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
+                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.851125810" name="Include paths (-I)" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="/home/centos/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/float"/>
                                     									

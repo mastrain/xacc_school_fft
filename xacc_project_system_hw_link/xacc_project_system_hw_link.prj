@@ -5,8 +5,8 @@
       <binaryContainers name="binary_container_1">
         <kernels name="fft1DKernel" projectName="xacc_project_kernels">
           <computeUnits name="fft1DKernel_1" slr="">
-            <args name="p_inData" master="true" memory=""/>
-            <args name="p_outData" master="true" memory=""/>
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
             <args name="n_frames"/>
           </computeUnits>
         </kernels>
@@ -16,8 +16,8 @@
       <binaryContainers name="binary_container_1">
         <kernels name="fft1DKernel" projectName="xacc_project_kernels">
           <computeUnits name="fft1DKernel_1" slr="">
-            <args name="p_inData" master="true" memory=""/>
-            <args name="p_outData" master="true" memory=""/>
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
             <args name="n_frames"/>
           </computeUnits>
         </kernels>
@@ -29,21 +29,32 @@
       <binaryContainers name="binary_container_1">
         <kernels name="fft1DKernel" projectName="xacc_project_kernels">
           <computeUnits name="fft1DKernel_1" slr="">
-            <args name="p_inData" master="true" memory=""/>
-            <args name="p_outData" master="true" memory=""/>
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
             <args name="n_frames"/>
           </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
+      <binaryContainers name="binary_container_1">
+        <kernels name="fft1DKernel" projectName="xacc_project_kernels">
+          <computeUnits name="fft1DKernel_1" slr="">
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
+            <args name="n_frames"/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </lastBuildOptions>
   </configuration>
   <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwlink.hw.1334514205">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
       <binaryContainers name="binary_container_1">
         <kernels name="fft1DKernel" projectName="xacc_project_kernels">
           <computeUnits name="fft1DKernel_1" slr="">
-            <args name="p_inData" master="true" memory=""/>
-            <args name="p_outData" master="true" memory=""/>
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
             <args name="n_frames"/>
           </computeUnits>
         </kernels>
@@ -53,8 +64,8 @@
       <binaryContainers name="binary_container_1">
         <kernels name="fft1DKernel" projectName="xacc_project_kernels">
           <computeUnits name="fft1DKernel_1" slr="">
-            <args name="p_inData" master="true" memory=""/>
-            <args name="p_outData" master="true" memory=""/>
+            <args name="p_inData" master="true" memory="DDR[0]"/>
+            <args name="p_outData" master="true" memory="DDR[0]"/>
             <args name="n_frames"/>
           </computeUnits>
         </kernels>

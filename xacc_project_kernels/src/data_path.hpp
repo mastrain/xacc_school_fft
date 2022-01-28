@@ -25,9 +25,9 @@
 using namespace xf::dsp::fft;
 
 // Define Numfer of FFTs, FFT Size, and Super Sample Rate
-#define N_FFT 1024
-#define FFT_LEN 1024
-#define SSR 8
+#define N_FFT 1
+#define FFT_LEN 16
+#define SSR 2
 
 typedef complex_wrapper<float> T_in;
 #define IID 0

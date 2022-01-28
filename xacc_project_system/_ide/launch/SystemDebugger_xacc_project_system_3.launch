@@ -61,13 +61,11 @@
     <stringAttribute key="ide.launch.pdi.path" value=""/>
     <stringAttribute key="ide.launch.program.device" value="false"/>
     <stringAttribute key="launch.version" value=""/>
-    <booleanAttribute key="multilaunch.active_build_config" value="false"/>
-    <mapAttribute key="multilaunch.app_args">
-        <mapEntry key="xacc_project" value="-xclbin ${project_loc:xacc_project_system}/Emulation-SW/binary_container_1.xclbin"/>
-    </mapAttribute>
+    <booleanAttribute key="multilaunch.active_build_config" value="true"/>
+    <mapAttribute key="multilaunch.app_args"/>
     <mapAttribute key="multilaunch.app_launch_cfg_files"/>
-    <booleanAttribute key="multilaunch.auto_update_args" value="false"/>
-    <stringAttribute key="multilaunch.build_config_id" value="com.xilinx.sdx.system.managedbuilder.swemu.configuration.666217679"/>
+    <booleanAttribute key="multilaunch.auto_update_args" value="true"/>
+    <stringAttribute key="multilaunch.build_config_id" value=""/>
     <booleanAttribute key="multilaunch.dc.live_waveform" value="false"/>
     <booleanAttribute key="multilaunch.dc.use_waveform" value="false"/>
     <booleanAttribute key="multilaunch.debug_selected_apps" value="false"/>

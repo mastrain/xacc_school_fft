@@ -30,6 +30,8 @@
 #include <xcl2.hpp>
 #endif
 
+#define M_PI 3.14159265
+
 class ArgParser {
    public:
     ArgParser(int& argc, const char** argv) {
@@ -60,12 +62,16 @@ T* aligned_alloc(std::size_t num) {
     return reinterpret_cast<T*>(ptr);
 }
 
+//std::string binaryFile = xcl::find_binary_file(device_name, "vision_warp");
+//cl::Program::Binaries bins = xcl::import_binary_file(binaryFile);
+
 int main(int argc, char** argv) {
 #ifndef HLS_TEST
     // cmd parser
     ArgParser parser(argc, (const char**)argv);
     std::string xclbin_path;
     if (!parser.getCmdOption("-xclbin", xclbin_path)) {
+    	std::cout << xclbin_path << "\n\r";
         std::cout << "ERROR:xclbin path is not set!\n";
         return 1;
     }
@@ -88,17 +94,75 @@ int main(int argc, char** argv) {
         nffts = N_FFT;
     }
 
+    std::cout << "nffts: " << nffts << std::endl;
+    std::cout << "N_FFT: " << N_FFT << std::endl;
+    std::cout << "FFT_LEN: " << FFT_LEN << std::endl;
+    std::cout << "SSR: " << SSR << std::endl;
+
     ap_uint<512>* inData = aligned_alloc<ap_uint<512> >(FFT_LEN * nffts / SSR);
     ap_uint<512>* outData = aligned_alloc<ap_uint<512> >(FFT_LEN * nffts / SSR);
     // impulse as input
+/*
     for (int n = 0; n < nffts; ++n) {
         for (int t = 0; t < FFT_LEN / SSR; ++t) {
-            if (t == 0)
-                inData[n * FFT_LEN / SSR + t] = 1;
-            else
-                inData[n * FFT_LEN / SSR + t] = 0;
+            if (t == 0){
+                //float f = 1.0;
+                //unsigned long x = *reinterpret_cast<unsigned long*>(&f);
+                //inData[n * FFT_LEN / SSR + t] = x;
+            	//inData[n * FFT_LEN / SSR + t].range(31 + 64 * t, 64 * t) = 1;
+                std::cout << inData[n * FFT_LEN / SSR + t] << std::endl;
+
+            }
+            else{
+                float f = 1.0;
+                unsigned long x = *reinterpret_cast<unsigned long*>(&f);
+                inData[n * FFT_LEN / SSR + t] = x;
+                //inData[n * FFT_LEN / SSR + t].range(31 + 64 * t, 64 * t) = 1;
+            	inData[n * FFT_LEN / SSR + t] = x;
+                std::cout << inData[n * FFT_LEN / SSR + t] << std::endl;
+            }
         }
     }
+*/
+/*
+    float signal[8][8];
+    int t=0;
+    for (unsigned int i=0; i<8; i++){
+        for (unsigned int j=0; j<8; j++){
+        	signal[i][j] = (float)(10000*sin(2*M_PI*t/63))+10000;
+        	std::cout << signal[i][j] << std::endl;
+        	t++;
+        }
+    }
+    for (unsigned int i=0; i<8; i++){
+		inData[i].range(31, 0) = signal[i][0];
+    	inData[i].range(95, 64) = signal[i][1];
+    	inData[i].range(159, 128) = signal[i][2];
+    	inData[i].range(223, 192) = signal[i][3];
+    	inData[i].range(287, 256) = signal[i][4];
+    	inData[i].range(351, 320) = signal[i][5];
+    	inData[i].range(415, 384) = signal[i][6];
+    	inData[i].range(479, 448) = signal[i][7];
+
+    }
+*/
+
+    for (unsigned int i=0; i<8; i++){
+    	if (i==0){
+    		inData[i].range(31, 0) = 1;
+    	} else {
+    		inData[i].range(31, 0) = 1;
+    	}
+    	inData[i].range(95, 64) = 1;
+    	inData[i].range(159, 128) = 1;
+    	inData[i].range(223, 192) = 1;
+    	inData[i].range(287, 256) = 1;
+    	inData[i].range(351, 320) = 1;
+    	inData[i].range(415, 384) = 1;
+    	inData[i].range(479, 448) = 1;
+    }
+
+
     std::cout << "Host buffer has been allocated and set.\n";
 
     xf::common::utils_sw::Logger logger(std::cout, std::cerr);
@@ -115,6 +179,8 @@ int main(int argc, char** argv) {
     logger.logCreateCommandQueue(err);
     std::string devName = device.getInfo<CL_DEVICE_NAME>();
     std::cout << "Selected Device " << devName << "\n";
+
+    std::cout << xclbin_path << "\n";
 
     cl::Program::Binaries xclBins = xcl::import_binary_file(xclbin_path);
     devices.resize(1);
@@ -152,6 +218,9 @@ int main(int argc, char** argv) {
     // write data to DDR
     std::vector<cl::Memory> ib;
     ib.push_back(in_buff);
+    for (unsigned int i = 0; i < ib.size(); i++){
+    	std::cout << ib[i].get();
+    }
     q.enqueueMigrateMemObjects(ib, 0, nullptr, &write_events[0][0]);
     q.finish();
     std::cout << "H2D data transfer done.\n";
@@ -212,6 +281,19 @@ int main(int argc, char** argv) {
             }
         }
     }
+    int count=0;
+    for (int n = 0; n < nffts; ++n) {
+        for (int t = 0; t < FFT_LEN / SSR; ++t) {
+        	for (int iter = 0; iter < 8; ++iter) {
+        		count++;
+				std::cout << "Sample[" << count <<"]: "<< "Real = " << outData[n * FFT_LEN / SSR + t].range(31 + 64 * iter, 64 * iter)
+						  << "    Imag = " << outData[n * FFT_LEN / SSR + t].range(63 + 64 * iter, 32 + 64 * iter)
+						  << std::endl;
+
+        	}
+        }
+    }
+
     errs ? logger.error(xf::common::utils_sw::Logger::Message::TEST_FAIL)
          : logger.info(xf::common::utils_sw::Logger::Message::TEST_PASS);
 
